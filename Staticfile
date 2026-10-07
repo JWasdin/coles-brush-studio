@@ -1,0 +1,2 @@
+# Railpack: serve this directory as a static site.
+root: .

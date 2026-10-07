@@ -3,440 +3,84 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="light dark" />
-  <link rel="icon" href="data:," />
-  <title>Cole's brush studio — lo-fi directions</title>
+  <meta name="description" content="Cole’s Brush Studio — natural nail care, hand-painted details, and one-of-a-kind silks." />
+  <title>Cole’s Brush Studio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f6f4ef'/%3E%3Ccircle cx='8' cy='16' r='4' fill='%23e2715f'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23315f93'/%3E%3Ccircle cx='24' cy='16' r='4' fill='%23d69a2b'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      color-scheme: light dark;
-      --paper: #f6f4ef;
-      --paper-2: #ece9e1;
-      --ink: #222522;
-      --muted: #686b65;
-      --line: #cbc8be;
-      --white: #fffefb;
-      --sage: #b9c5b5;
-      --sage-deep: #536455;
-      --coral: #e2715f;
-      --cobalt: #315f93;
-      --marigold: #d69a2b;
-      --rosewash: #ead2cc;
-      --cream-accent: #eadfc8;
-      --cream-ink: #40392f;
-      --cream-muted: #6f6556;
-      --shadow: rgba(56, 54, 49, .11);
-      --display: "Cormorant Garamond", Georgia, serif;
-      --sans: "DM Sans", sans-serif;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --paper: #1c201d;
-        --paper-2: #272c28;
-        --ink: #f2f0e9;
-        --muted: #b9bcb5;
-        --line: #4a4f4a;
-        --white: #222722;
-        --sage: #77887a;
-        --sage-deep: #c2d0c4;
-        --coral: #ef8b78;
-        --cobalt: #80a9d5;
-        --marigold: #e5b654;
-        --rosewash: #503c3a;
-        --cream-accent: #d8c8aa;
-        --cream-ink: #28231d;
-        --cream-muted: #5d5447;
-        --shadow: rgba(0, 0, 0, .26);
-      }
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      line-height: 1.5;
-    }
-    button, input, select { font: inherit; }
-    button { color: inherit; }
-    img { display: block; width: 100%; }
-    a { color: inherit; }
-    .page { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 44px 0 72px; }
-    .intro { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: end; margin-bottom: 40px; }
-    .intro h1 { font: 500 clamp(2.55rem, 6vw, 5.75rem)/.94 var(--display); letter-spacing: -.045em; max-width: 800px; margin: 0; }
-    .intro p { margin: 0 0 7px; color: var(--muted); max-width: 32ch; }
-    .tabs-wrap { position: sticky; top: 0; z-index: 10; padding: 12px 0; background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: blur(10px); }
-    .tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
-    .tab {
-      border: 0; background: transparent; padding: 8px 12px; cursor: pointer; color: var(--muted); border-radius: 3px;
-    }
-    .tab:hover { background: var(--paper-2); color: var(--ink); }
-    .tab[aria-selected="true"] { background: var(--ink); color: var(--paper); }
-    .concept { display: none; margin-top: 22px; }
-    .concept.active { display: block; }
-    .concept-meta { display: grid; grid-template-columns: 150px 1fr; gap: 24px; align-items: baseline; margin: 30px 0 18px; }
-    .concept-meta strong { color: var(--sage-deep); font-weight: 600; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
-    .concept-meta p { margin: 0; max-width: 650px; color: var(--muted); }
-    .browser {
-      border: 1px solid var(--line); background: var(--white); box-shadow: 0 18px 55px var(--shadow); overflow: hidden;
-    }
-    .browser-chrome { height: 34px; background: var(--paper-2); border-bottom: 1px solid var(--line); display: flex; gap: 6px; align-items: center; padding: 0 13px; }
-    .browser-chrome i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
-    .site { min-height: 640px; }
-    .site-nav { height: 76px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 38px; border-bottom: 1px solid var(--line); }
-    .wordmark { font: 500 1.2rem var(--display); letter-spacing: -.02em; }
-    .site-links { display: flex; gap: 25px; color: var(--muted); font-size: .82rem; }
-    .site-nav .nav-cta { justify-self: end; }
-    .btn { border: 1px solid var(--ink); background: var(--ink); color: var(--white); padding: 11px 17px; cursor: pointer; border-radius: 2px; font-weight: 600; font-size: .82rem; }
-    .btn:hover { background: var(--sage-deep); border-color: var(--sage-deep); }
-    .btn.secondary { background: transparent; color: var(--ink); }
-    .btn.secondary:hover { background: var(--paper-2); border-color: var(--ink); }
-    .hero-a { display: grid; grid-template-columns: 1.03fr .97fr; min-height: 500px; }
-    .hero-a-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(35px, 6vw, 76px); }
-    .brushline { width: 66px; height: 5px; background: var(--coral); border-radius: 60% 40% 55% 45%; transform: rotate(-2deg); margin-bottom: 24px; opacity: .85; }
-    .hero-a h2, .hero-b h2, .hero-c h2 { font: 400 clamp(2.7rem, 5vw, 5.4rem)/.96 var(--display); letter-spacing: -.04em; margin: 0 0 20px; }
-    .hero-a p, .hero-b p, .hero-c p { color: var(--muted); max-width: 41ch; margin: 0 0 29px; }
-    .action-row { display: flex; flex-wrap: wrap; gap: 10px; }
-    .hero-a-visual { position: relative; overflow: hidden; min-height: 470px; }
-    .hero-a-visual img { height: 100%; object-fit: cover; }
-    .paint-tag { position: absolute; left: 20px; bottom: 20px; background: var(--white); padding: 12px 15px; font: 500 1rem var(--display); border: 1px solid var(--line); }
-    .services-strip { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
-    .service { padding: 25px 28px; border-right: 1px solid var(--line); }
-    .service:last-child { border-right: 0; }
-    .service span { display: block; color: var(--coral); font-size: .75rem; margin-bottom: 8px; }
-    .service h3 { margin: 0; font: 500 1.35rem var(--display); }
-    /* direction B */
-    .site.b { background: var(--paper); }
-    .b .site-nav { border-bottom: 0; }
-    .b .wordmark { font-family: var(--sans); font-size: .92rem; font-weight: 600; }
-    .hero-b { display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 30px 38px 52px; gap: 44px; }
-    .hero-b-art { position: relative; }
-    .hero-b-art img { aspect-ratio: 4/5; object-fit: cover; clip-path: inset(0 4% 0 4% round 44% 46% 9% 8%); }
-    .pathways { display: grid; gap: 24px; margin-top: 42px; }
-    .pathway { border-top: 1px solid var(--line); padding: 22px 0 4px; }
-    .pathway:first-child { border-top: 0; padding-top: 0; }
-    .pathway-head { display:flex; justify-content:space-between; align-items:baseline; gap:18px; margin-bottom:10px; }
-    .pathway h3 { margin:0; font:500 1.45rem var(--display); }
-    .pathway small { color:var(--muted); font-size:.75rem; }
-    .silk-gallery-button { width:100%; min-height:92px; display:grid; grid-template-columns:132px 1fr auto; align-items:center; gap:17px; padding:0; overflow:hidden; border:1px solid var(--line); background:var(--white); color:var(--ink); text-align:left; cursor:pointer; }
-    .silk-gallery-button:hover { border-color:var(--ink); background:var(--paper-2); }
-    .silk-gallery-button:focus-visible { outline:2px solid var(--cobalt); outline-offset:2px; }
-    .silk-gallery-button img { width:132px; height:92px; object-fit:cover; }
-    .silk-gallery-button strong { display:block; font:500 1.45rem var(--display); }
-    .silk-gallery-button small { display:block; margin-top:3px; color:var(--muted); font-size:.75rem; }
-    .silk-gallery-button .pathway-arrow { padding:12px 17px 12px 0; font-size:1.25rem; }
-    .pathway p { margin:0; font-size:.84rem; line-height:1.45; color:var(--muted); }
-    .mini-services { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
-    .mini-service { border:1px solid var(--line); padding:10px; min-height:68px; background:color-mix(in srgb, var(--white) 70%, transparent); color:var(--ink); text-align:left; cursor:pointer; }
-    .mini-service:hover { border-color:var(--ink); background:var(--paper-2); }
-    .mini-service:focus-visible { outline:2px solid var(--cobalt); outline-offset:2px; }
-    .mini-service i { display:block; width:15px; height:15px; border-radius:50%; margin-bottom:7px; }
-    .mini-service:nth-child(1) i { background:var(--coral); }
-    .mini-service:nth-child(2) i { background:var(--cobalt); }
-    .mini-service:nth-child(3) i { background:var(--marigold); }
-    .mini-service span { display:block; font-size:.72rem; line-height:1.2; }
-    .pathway-actions { display:flex; justify-content:flex-end; margin-top:10px; }
-    .studio-footer { display:flex; justify-content:space-between; align-items:center; gap:24px; background:var(--cream-accent); color:var(--cream-ink); padding:17px 24px; font-size:.72rem; }
-    .studio-footer-brand { display:flex; align-items:center; gap:15px; min-width:0; }
-    .studio-footer-name { font-weight:600; letter-spacing:.08em; white-space:nowrap; }
-    .footer-swatches { display:flex; align-items:center; gap:5px; }
-    .footer-swatches i { display:block; width:18px; height:10px; opacity:.92; }
-    .footer-swatches i:nth-child(1) { background:var(--coral); border-radius:62% 38% 54% 46% / 48% 61% 39% 52%; transform:rotate(-7deg); }
-    .footer-swatches i:nth-child(2) { width:16px; background:var(--cobalt); border-radius:38% 62% 44% 56% / 57% 42% 58% 43%; transform:rotate(5deg); }
-    .footer-swatches i:nth-child(3) { width:17px; background:var(--marigold); border-radius:55% 45% 65% 35% / 42% 58% 39% 61%; transform:rotate(-3deg); }
-    .studio-footer-links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px 20px; color:var(--cream-muted); }
-    .studio-footer-links button { border:0; padding:0; background:transparent; color:inherit; cursor:pointer; }
-    .studio-footer-links button:hover { color:var(--cream-ink); }
-    /* direction C */
-    .c .site-nav { background: var(--ink); color: var(--paper); border-color: transparent; }
-    .c .site-links { color: color-mix(in srgb, var(--paper) 70%, transparent); }
-    .c .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-    .hero-c { display: grid; grid-template-columns: 44% 56%; background: var(--ink); color: var(--paper); }
-    .hero-c-copy { padding: clamp(34px, 5vw, 64px) 38px; align-self: center; }
-    .hero-c p { color: color-mix(in srgb, var(--paper) 72%, transparent); }
-    .hero-c-visual { display:grid; grid-template-columns: 1fr 1fr; min-height: 470px; }
-    .hero-c-visual img { height: 100%; object-fit: cover; }
-    .hero-c-visual img:first-child { border-right: 8px solid var(--ink); }
-    .gallery-labels { display:grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 22px 38px 28px; }
-    .gallery-labels div { display:flex; justify-content:space-between; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
-    .gallery-labels small { color: var(--muted); }
-    .rationale { margin: 28px 0 0; display: grid; grid-template-columns: 150px repeat(3, 1fr); gap: 22px; }
-    .rationale h3 { margin: 0; font: 500 1.15rem var(--display); }
-    .rationale p { margin: 0; color: var(--muted); font-size: .88rem; }
-    .rationale b { display: block; color: var(--ink); font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
-    dialog { border: 0; padding: 0; background: transparent; width: min(560px, calc(100% - 24px)); color: var(--ink); }
-    dialog::backdrop { background: rgba(18, 22, 18, .67); backdrop-filter: blur(4px); }
-    #silk-dialog.silk-grid-open { width:min(940px, calc(100% - 24px)); }
-    #booking-dialog { width:min(940px, calc(100% - 24px)); }
-    .booking { position:relative; display:grid; grid-template-columns:minmax(0, 3fr) minmax(0, 2fr); background:var(--white); border:1px solid var(--line); box-shadow:0 24px 70px rgba(0,0,0,.25); overflow:hidden; }
-    .booking-service-detail { position:relative; display:flex; flex-direction:column; justify-content:space-between; min-height:540px; padding:36px 34px 32px; background:var(--paper-2); border-right:1px solid var(--line); }
-    .booking-service-detail::before { content:""; position:absolute; inset:0 0 auto; height:7px; background:var(--service-accent, var(--coral)); }
-    .booking-kicker { display:block; margin-bottom:14px; color:var(--muted); font-size:.72rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
-    .booking-service-detail h2 { max-width:9ch; margin:0 0 15px; font:500 clamp(2.1rem, 4vw, 3.4rem)/.95 var(--display); letter-spacing:-.035em; }
-    .booking-service-detail > div > p { margin:0; max-width:34ch; color:var(--muted); font-size:.9rem; }
-    .service-facts { display:grid; gap:0; margin:30px 0 0; border-top:1px solid var(--line); }
-    .service-fact { display:grid; grid-template-columns:92px 1fr; gap:14px; padding:13px 0; border-bottom:1px solid var(--line); font-size:.8rem; }
-    .service-fact span { color:var(--muted); }
-    .service-fact strong { font-weight:600; }
-    .booking-service-note { margin-top:26px; font:500 1.05rem/1.3 var(--display); color:var(--sage-deep); }
-    .booking-panel { min-width:0; }
-    .booking-head { display:flex; justify-content:flex-end; align-items:flex-start; padding:18px 24px 0; }
-    .icon-btn { border:0; background:transparent; font-size:1.7rem; cursor:pointer; line-height:1; padding:0 4px; }
-    .booking-body { padding:22px 32px 30px; }
-    .field { margin-bottom: 20px; }
-    .field > label, .field > span { display:block; font-size:.79rem; font-weight:600; margin-bottom:8px; }
-    .service-options { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
-    .service-options label { cursor:pointer; }
-    .service-options label:nth-child(1) { --option-accent:var(--coral); }
-    .service-options label:nth-child(2) { --option-accent:var(--cobalt); }
-    .service-options label:nth-child(3) { --option-accent:var(--marigold); }
-    .service-options input { position:absolute; opacity:0; pointer-events:none; }
-    .service-options span { display:block; border:1px solid var(--line); min-height:66px; padding:11px; font-size:.8rem; }
-    .service-options input:checked + span { border-color:var(--ink); background:var(--paper-2); box-shadow:inset 0 -3px var(--option-accent); }
-    .booking-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-    input[type="date"], select { width:100%; background:var(--paper); color:var(--ink); border:1px solid var(--line); padding:11px; border-radius:0; }
-    .request-preview { display:none; background:var(--paper-2); padding:14px; margin:18px 0; white-space:pre-line; font-size:.86rem; }
-    .request-preview.show { display:block; }
-    .booking-actions { display:flex; justify-content:flex-end; gap:8px; }
-    .gallery-modal { background:var(--white); border:1px solid var(--line); box-shadow:0 24px 70px rgba(0,0,0,.25); }
-    .gallery-head { display:flex; justify-content:space-between; align-items:flex-start; gap:20px; padding:22px 24px 17px; border-bottom:1px solid var(--line); }
-    .gallery-head h2 { margin:0 0 3px; font:500 1.85rem var(--display); }
-    .gallery-head p { margin:0; color:var(--muted); font-size:.8rem; }
-    .gallery-head-actions { display:flex; align-items:center; gap:10px; }
-    .gallery-view-toggle { border:1px solid var(--line); background:transparent; padding:8px 11px; color:var(--ink); font-size:.76rem; font-weight:600; cursor:pointer; white-space:nowrap; }
-    .gallery-view-toggle:hover { border-color:var(--ink); background:var(--paper-2); }
-    .gallery-stage { position:relative; display:flex; justify-content:center; padding:24px; background:var(--paper-2); }
-    .gallery-stage img { height:min(58vh, 500px); min-height:300px; object-fit:cover; padding:8px; border:1px solid var(--line); background:var(--white); box-shadow:0 7px 16px var(--shadow); transition:opacity .16s ease; }
-    .gallery-caption { display:flex; justify-content:space-between; gap:18px; align-items:flex-start; padding:15px 24px 18px; }
-    .gallery-navigation { display:grid; justify-items:center; gap:5px; }
-    .gallery-navigation span { color:var(--muted); font-size:.75rem; line-height:1; }
-    .gallery-controls { display:flex; gap:6px; }
-    .gallery-controls button { width:38px; height:34px; border:1px solid var(--line); background:transparent; cursor:pointer; }
-    .gallery-controls button:hover { border-color:var(--ink); background:var(--paper-2); }
-    .gallery-inquiry { display:none; grid-template-columns:1fr auto; align-items:center; gap:18px; padding:16px 24px 19px; border-top:1px solid var(--line); background:var(--paper-2); }
-    .gallery-inquiry.show { display:grid; }
-    .gallery-inquiry p { margin:0; color:var(--muted); font-size:.8rem; }
-    .gallery-inquiry strong { display:block; margin-bottom:2px; color:var(--ink); font:500 1.05rem var(--display); }
-    .gallery-grid { display:none; grid-template-columns:repeat(3, 1fr); gap:20px; padding:24px; background:var(--paper-2); }
-    .gallery-grid.show { display:grid; }
-    .gallery-grid-item { border:1px solid var(--line); padding:8px; background:var(--white); color:var(--ink); text-align:left; cursor:pointer; box-shadow:0 7px 16px var(--shadow); }
-    .gallery-grid-item:hover { border-color:var(--ink); background:var(--white); }
-    .gallery-grid-item:focus-visible { outline:2px solid var(--cobalt); outline-offset:3px; }
-    .gallery-grid-item img { width:100%; aspect-ratio:4/5; object-fit:cover; }
-    .gallery-grid-item span { display:block; padding:10px 3px 3px; font:500 .94rem var(--display); }
-    .care-page { background:var(--white); border:1px solid var(--line); box-shadow:0 24px 70px rgba(0,0,0,.25); }
-    .care-page-head { display:flex; justify-content:space-between; align-items:flex-start; gap:20px; padding:30px 30px 23px; border-bottom:1px solid var(--line); }
-    .care-page-head h2 { margin:0 0 7px; font:500 2.2rem/1 var(--display); letter-spacing:-.025em; }
-    .care-page-head p { margin:0; color:var(--muted); max-width:45ch; font-size:.86rem; }
-    .care-page-body { padding:24px 30px 30px; }
-    .care-values { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:26px; }
-    .care-values div { border-top:3px solid var(--sage); padding-top:12px; }
-    .care-values div:nth-child(2) { border-color:var(--coral); }
-    .care-values div:nth-child(3) { border-color:var(--cobalt); }
-    .care-values strong { display:block; margin-bottom:5px; font:500 1.08rem var(--display); }
-    .care-values p { margin:0; color:var(--muted); font-size:.78rem; }
-    .care-offerings { border-top:1px solid var(--line); }
-    .care-offering { display:grid; grid-template-columns:1fr auto; align-items:center; gap:18px; padding:15px 0; border-bottom:1px solid var(--line); }
-    .care-offering h3 { margin:0 0 3px; font:500 1.15rem var(--display); }
-    .care-offering p { margin:0; color:var(--muted); font-size:.76rem; }
-    .toast { position:fixed; left:50%; bottom:20px; transform:translateX(-50%) translateY(20px); opacity:0; background:var(--ink); color:var(--paper); padding:10px 15px; font-size:.82rem; pointer-events:none; transition:.2s ease; z-index:30; }
-    .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-    @media (max-width: 760px) {
-      .page { width:min(100% - 22px, 620px); padding:24px 0 50px; }
-      .intro { grid-template-columns:1fr; gap:18px; margin-bottom:23px; }
-      .intro h1 { font-size:clamp(2.7rem, 14vw, 4.6rem); }
-      .intro p { max-width:44ch; }
-      .tabs { overflow:visible; display:grid; grid-template-columns:1fr 1fr 1fr; gap:4px; }
-      .tab { padding:8px 5px; font-size:.77rem; }
-      .concept-meta { grid-template-columns:1fr; gap:7px; margin:20px 2px 14px; }
-      .browser-chrome { height:26px; }
-      .site { min-height:0; }
-      .site-nav { height:auto; min-height:61px; padding:12px 17px; grid-template-columns:1fr auto; }
-      .site-links { display:none; }
-      .site-nav .nav-cta { font-size:.74rem; padding:8px 10px; }
-      .hero-a, .hero-b, .hero-c { grid-template-columns:1fr; }
-      .hero-a-copy { padding:42px 22px 34px; }
-      .hero-a h2, .hero-b h2, .hero-c h2 { font-size:clamp(2.5rem, 13vw, 4rem); }
-      .hero-a-visual { min-height:270px; }
-      .services-strip { grid-template-columns:1fr; }
-      .service { border-right:0; border-bottom:1px solid var(--line); padding:17px 21px; }
-      .service:last-child { border-bottom:0; }
-      .hero-b { padding:22px 20px 35px; gap:24px; }
-      .hero-b-art img { aspect-ratio: 4/3; clip-path: inset(0 2% round 44% 44% 8% 8%); }
-      .silk-gallery-button { grid-template-columns:94px 1fr auto; min-height:78px; gap:12px; }
-      .silk-gallery-button img { width:94px; height:78px; }
-      .silk-gallery-button strong { font-size:1.2rem; }
-      .silk-gallery-button .pathway-arrow { padding-right:12px; }
-      .mini-services { grid-template-columns:1fr; }
-      .mini-service { min-height:0; display:flex; align-items:center; gap:9px; }
-      .mini-service i { margin:0; flex:0 0 auto; }
-      .studio-footer { align-items:flex-start; flex-direction:column; gap:10px; padding:15px 17px; }
-      .studio-footer-links { justify-content:flex-start; gap:7px 16px; }
-      .hero-c-copy { padding:40px 22px 36px; }
-      .hero-c-visual { min-height:300px; }
-      .hero-c-visual img:first-child { border-right-width:5px; }
-      .gallery-labels { grid-template-columns:1fr; padding:18px 20px 25px; }
-      .rationale { grid-template-columns:1fr; gap:14px; margin:20px 2px 0; }
-      .rationale div { border-top:1px solid var(--line); padding-top:12px; }
-      #booking-dialog { width:min(100% - 18px, 620px); max-height:calc(100dvh - 18px); }
-      .booking { grid-template-columns:1fr; overflow:visible; }
-      .booking-service-detail { min-height:0; padding:27px 20px 22px; border-right:0; border-bottom:1px solid var(--line); }
-      .booking-service-detail h2 { max-width:none; font-size:2.25rem; margin-bottom:10px; }
-      .booking-service-detail > div > p { max-width:42ch; }
-      .service-facts { grid-template-columns:1fr 1fr; gap:0 16px; margin-top:20px; }
-      .service-fact { grid-template-columns:1fr; gap:2px; padding:9px 0; }
-      .service-fact:last-child { grid-column:1 / -1; }
-      .booking-service-note { display:none; }
-      .booking-head, .booking-body, .care-page-head, .care-page-body { padding-left:20px; padding-right:20px; }
-      .gallery-head { padding:18px 18px 14px; }
-      .gallery-head-actions { gap:7px; }
-      .gallery-view-toggle { padding:7px 9px; }
-      .gallery-stage { padding:14px; }
-      .gallery-stage img { padding:6px; }
-      .gallery-caption { align-items:flex-start; padding:14px 18px 16px; }
-      .gallery-inquiry { grid-template-columns:1fr; gap:12px; padding:15px 18px 18px; }
-      .gallery-inquiry .btn { width:100%; }
-      .gallery-grid { grid-template-columns:repeat(2, 1fr); gap:12px; padding:14px; }
-      .gallery-grid-item { padding:6px; }
-      .service-options, .booking-grid, .care-values { grid-template-columns:1fr; }
-      .care-values { gap:12px; }
-      .care-offering { grid-template-columns:1fr; gap:10px; }
-      .care-offering .btn { width:100%; }
-      .booking-actions { flex-direction:column-reverse; }
-      .booking-actions .btn { width:100%; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .toast { transition:none; } }
-  </style>
+  <link rel="stylesheet" href="css/studio.css">
 </head>
 <body>
-  <main class="page">
-    <section class="intro" aria-labelledby="page-title">
-      <h1 id="page-title">Three ways Cole’s work could meet the world.</h1>
-      <p>Lo-fi directions for a calm, artful studio—each pairing natural nail care with hand-painted silk.</p>
-    </section>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="tabs-wrap">
-      <div class="tabs" role="tablist" aria-label="Design directions">
-        <button class="tab" role="tab" aria-selected="false" aria-controls="concept-a" id="tab-a" data-target="concept-a">01 · Quiet studio</button>
-        <button class="tab" role="tab" aria-selected="true" aria-controls="concept-b" id="tab-b" data-target="concept-b">02 · Color ritual</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="concept-c" id="tab-c" data-target="concept-c">03 · Silk first</button>
+  <header class="site-header">
+    <a class="wordmark" href="/">Cole’s Brush Studio</a>
+    <nav class="site-links" aria-label="Studio">
+      <button type="button" data-nail-care>Services</button>
+      <button type="button" data-silk-gallery>Silks</button>
+      <button type="button" data-studio-notes>Studio notes</button>
+    </nav>
+    <button class="btn nav-cta" type="button" data-nail-care>Find a time</button>
+  </header>
+
+  <main id="main" class="hero">
+    <div class="hero-art">
+      <img src="img-01.jpg" alt="Watercolor still life of a fine brush, linen, glass dish, painted ribbon, and three nail polish bottles">
+    </div>
+    <div class="hero-copy">
+      <h1>A little ritual<br>for hands &amp; color.</h1>
+      <div class="pathways">
+        <section class="pathway" aria-label="Painted silks gallery">
+          <button class="silk-gallery-button" type="button" data-silk-gallery aria-haspopup="dialog">
+            <img src="img-02.jpg" alt="">
+            <span><strong>Painted silks</strong><small>Open the gallery</small></span>
+            <span class="pathway-arrow" aria-hidden="true">→</span>
+          </button>
+        </section>
+        <section class="pathway" aria-labelledby="nail-path-title">
+          <div class="pathway-head">
+            <h2 id="nail-path-title">Book a nail service</h2>
+            <small>Appointments</small>
+          </div>
+          <div class="mini-services" aria-label="Choose a nail service to book">
+            <button class="mini-service" type="button" data-book data-service="Natural manicure"><i aria-hidden="true"></i><span>Natural<br>manicure</span><span class="pathway-arrow" aria-hidden="true">→</span></button>
+            <button class="mini-service" type="button" data-book data-service="Painted nail details"><i aria-hidden="true"></i><span>Painted<br>details</span><span class="pathway-arrow" aria-hidden="true">→</span></button>
+            <button class="mini-service" type="button" data-book data-service="Nail care and repair"><i aria-hidden="true"></i><span>Care &amp;<br>repair</span><span class="pathway-arrow" aria-hidden="true">→</span></button>
+          </div>
+        </section>
       </div>
     </div>
-
-    <section class="concept" id="concept-a" role="tabpanel" aria-labelledby="tab-a" hidden>
-      <div class="concept-meta"><strong>Direction 01</strong><p>A restrained, editorial homepage with equal space for care and creativity. The clearest all-around direction.</p></div>
-      <div class="browser">
-        <div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="site a">
-          <nav class="site-nav" aria-label="Mock site navigation">
-            <div class="wordmark">Cole’s brush studio</div>
-            <div class="site-links"><span>Nail care</span><span>Painted silks</span><span>About Cole</span></div>
-            <button class="btn nav-cta" data-book>Book a visit</button>
-          </nav>
-          <div class="hero-a">
-            <div class="hero-a-copy">
-              <div class="brushline" aria-hidden="true"></div>
-              <h2>Carefully made.<br>Colorfully yours.</h2>
-              <p>Natural nail care, hand-painted details, and one-of-a-kind silks created by Cole.</p>
-              <div class="action-row"><button class="btn" data-book>Choose a nail service</button><button class="btn secondary" data-switch="concept-c">View the silks</button></div>
-            </div>
-            <div class="hero-a-visual"><img src="img-00.jpg" alt="Watercolor illustration of a hand with short, vividly painted natural nails"><span class="paint-tag">Color, with a light touch.</span></div>
-          </div>
-          <div class="services-strip">
-            <div class="service"><span>01</span><h3>Natural manicure</h3></div>
-            <div class="service"><span>02</span><h3>Painted details</h3></div>
-            <div class="service"><span>03</span><h3>Nail care & repair</h3></div>
-          </div>
-        </div>
-      </div>
-      <div class="rationale"><h3>Why it works</h3><div><b>Tone</b><p>Warm, assured, and uncluttered.</p></div><div><b>Emphasis</b><p>Nail bookings lead; silks remain visible.</p></div><div><b>Best for</b><p>A polished first site that can grow over time.</p></div></div>
-    </section>
-
-    <section class="concept active" id="concept-b" role="tabpanel" aria-labelledby="tab-b">
-      <div class="concept-meta"><strong>Direction 02 · refined</strong><p>The watercolor still life now includes polish bottles, while two clear paths give painted silks and nail booking equal presence from the first view.</p></div>
-      <div class="browser">
-        <div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="site b">
-          <nav class="site-nav" aria-label="Mock site navigation">
-            <div class="wordmark">COLE’S BRUSH STUDIO</div>
-            <div class="site-links"><span>Services</span><span>Silks</span><span>Studio notes</span></div>
-            <button class="btn nav-cta" data-nail-care>Find a time</button>
-          </nav>
-          <div class="hero-b">
-            <div class="hero-b-art"><img src="img-01.jpg" alt="Watercolor still life of a fine brush, linen, glass dish, painted ribbon, and three nail polish bottles"></div>
-            <div class="hero-b-copy">
-              <h2>A little ritual<br>for hands & color.</h2>
-              <div class="pathways">
-                <section class="pathway" aria-label="Painted silks gallery">
-                  <button class="silk-gallery-button" type="button" data-silk-gallery aria-haspopup="dialog">
-                    <img src="img-02.jpg" alt="">
-                    <span><strong>Painted silks</strong><small>Open the gallery</small></span>
-                    <span class="pathway-arrow" aria-hidden="true">→</span>
-                  </button>
-                </section>
-                <section class="pathway" aria-labelledby="nail-path-title">
-                  <div class="pathway-head"><h3 id="nail-path-title">Book a nail service</h3><small>Appointments</small></div>
-                  <div class="mini-services" aria-label="Choose a nail service to book">
-                    <button class="mini-service" type="button" data-book data-service="Natural manicure"><i aria-hidden="true"></i><span>Natural<br>manicure</span></button>
-                    <button class="mini-service" type="button" data-book data-service="Painted nail details"><i aria-hidden="true"></i><span>Painted<br>details</span></button>
-                    <button class="mini-service" type="button" data-book data-service="Nail care and repair"><i aria-hidden="true"></i><span>Care &<br>repair</span></button>
-                  </div>
-                  <div class="pathway-actions"><button class="btn secondary" type="button" data-nail-care>Find a time</button></div>
-                </section>
-              </div>
-            </div>
-          </div>
-          <footer class="studio-footer">
-            <div class="studio-footer-brand">
-              <span class="studio-footer-name">COLE’S BRUSH STUDIO</span>
-              <span class="footer-swatches" aria-label="Coral, cobalt, and marigold paint swatches"><i></i><i></i><i></i></span>
-            </div>
-            <div class="studio-footer-links" aria-label="Footer navigation">
-              <button type="button" data-book>Appointments</button>
-              <button type="button" data-switch="concept-c">Painted silks</button>
-              <button type="button" data-nail-care>Nail care</button>
-            </div>
-          </footer>
-        </div>
-      </div>
-      <div class="rationale"><h3>Why it works</h3><div><b>Tone</b><p>Intimate, restorative, and expressive.</p></div><div><b>Emphasis</b><p>Services feel easy to understand and choose.</p></div><div><b>Best for</b><p>Clients who want guidance before booking.</p></div></div>
-    </section>
-
-    <section class="concept" id="concept-c" role="tabpanel" aria-labelledby="tab-c" hidden>
-      <div class="concept-meta"><strong>Direction 03</strong><p>A gallery-led concept with more contrast. It gives the silk practice a strong visual presence without losing the booking path.</p></div>
-      <div class="browser">
-        <div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="site c">
-          <nav class="site-nav" aria-label="Mock site navigation">
-            <div class="wordmark">Cole’s brush studio</div>
-            <div class="site-links"><span>Silk work</span><span>Nails</span><span>Studio</span></div>
-            <button class="btn nav-cta" data-book>Book nail care</button>
-          </nav>
-          <div class="hero-c">
-            <div class="hero-c-copy"><h2>Art made<br>to be worn.</h2><p>Hand-painted silks and tiny works of nail art—each shaped by brush, pigment, and an eye for color.</p><div class="action-row"><button class="btn" data-book>Book with Cole</button></div></div>
-            <div class="hero-c-visual"><img src="img-02.jpg" alt="Watercolor illustration of bright hand-painted silk scarves"><img src="img-00.jpg" alt="Watercolor illustration of vivid natural nail art"></div>
-          </div>
-          <div class="gallery-labels"><div><span>Painted silks</span><small>Selected work</small></div><div><span>Natural nails</span><small>Care + color</small></div></div>
-        </div>
-      </div>
-      <div class="rationale"><h3>Why it works</h3><div><b>Tone</b><p>Artful, confident, and gallery-like.</p></div><div><b>Emphasis</b><p>Silks and nail work share the spotlight.</p></div><div><b>Best for</b><p>A studio identity that goes beyond services.</p></div></div>
-    </section>
   </main>
+
+  <footer class="studio-footer">
+    <div class="studio-footer-brand">
+      <span class="studio-footer-name">COLE’S BRUSH STUDIO</span>
+      <span class="footer-swatches" aria-label="Coral, cobalt, and marigold paint swatches"><i></i><i></i><i></i></span>
+    </div>
+    <div class="studio-footer-links" aria-label="Footer navigation">
+      <button type="button" data-book>Appointments</button>
+      <button type="button" data-silk-gallery>Painted silks</button>
+      <button type="button" data-nail-care>Nail care</button>
+    </div>
+  </footer>
 
   <dialog id="silk-dialog" aria-labelledby="silk-gallery-title">
     <section class="gallery-modal">
       <div class="gallery-head">
-        <div><h2 id="silk-gallery-title">Painted silks</h2><p>Studies in pigment, movement, and cloth.</p></div>
+        <div>
+          <h2 id="silk-gallery-title">Painted silks</h2>
+          <p>Studies in pigment, movement, and cloth.</p>
+        </div>
         <div class="gallery-head-actions">
           <button type="button" class="gallery-view-toggle" id="silk-view-toggle" aria-pressed="false">View all</button>
           <button type="button" class="icon-btn" id="close-silk-gallery" aria-label="Close silk gallery">×</button>
         </div>
       </div>
       <div id="silk-detail-view">
-        <div class="gallery-stage"><img id="silk-gallery-image" src="img-02.jpg" alt="Flowing painted silk studies in coral, gold, teal, and blue"></div>
+        <div class="gallery-stage">
+          <img id="silk-gallery-image" src="img-02.jpg" alt="Flowing painted silk studies in coral, gold, teal, and blue">
+        </div>
         <div class="gallery-caption">
           <button type="button" class="btn" id="silk-inquire">Inquire</button>
           <div class="gallery-navigation">
@@ -463,7 +107,10 @@
   <dialog id="care-dialog">
     <section class="care-page" aria-labelledby="care-title">
       <div class="care-page-head">
-        <div><h2 id="care-title">Care before color.</h2><p>Cole’s nail services begin with the natural nail—its health, comfort, and the small details that make color last beautifully.</p></div>
+        <div>
+          <h2 id="care-title">Care before color.</h2>
+          <p>Cole’s nail services begin with the natural nail—its health, comfort, and the small details that make color last beautifully.</p>
+        </div>
         <button type="button" class="icon-btn" id="close-care" aria-label="Close nail care details">×</button>
       </div>
       <div class="care-page-body">
@@ -476,6 +123,32 @@
           <div class="care-offering"><div><h3>Natural manicure</h3><p>Shape, cuticle care, and a polished finish.</p></div><button class="btn" type="button" data-book data-service="Natural manicure">Book this service</button></div>
           <div class="care-offering"><div><h3>Painted details</h3><p>A natural manicure finished with hand-painted accents.</p></div><button class="btn" type="button" data-book data-service="Painted nail details">Book this service</button></div>
           <div class="care-offering"><div><h3>Care &amp; repair</h3><p>Focused care for a nail that needs a little extra attention.</p></div><button class="btn" type="button" data-book data-service="Nail care and repair">Book this service</button></div>
+        </div>
+      </div>
+    </section>
+  </dialog>
+
+  <dialog id="notes-dialog" aria-labelledby="notes-title">
+    <section class="notes-page">
+      <div class="notes-page-head">
+        <div>
+          <h2 id="notes-title">Studio notes</h2>
+          <p>Small observations from the table, the silk, and the colors in between.</p>
+        </div>
+        <button type="button" class="icon-btn" id="close-notes" aria-label="Close studio notes">×</button>
+      </div>
+      <div class="notes-page-body">
+        <div class="notes-list">
+          <article class="note">
+            <time datetime="2026-09-18">September 18, 2026</time>
+            <h3>Color that stays quiet</h3>
+            <p>This season’s manicures have been leaning toward washed coral, a soft lilac, and one stubborn marigold. The still life on the homepage is a portrait of the table as much as the palette.</p>
+          </article>
+          <article class="note">
+            <time datetime="2026-08-02">August 2, 2026</time>
+            <h3>Silks, by inquiry</h3>
+            <p>Each painted silk is a one-off. If a piece in the gallery speaks to you, send an inquiry and we’ll talk through size, wear, and whether it is still available.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -501,173 +174,23 @@
           <div class="field"><span>What would you like?</span><div class="service-options">
             <label><input type="radio" name="service" value="Natural manicure" checked><span>Natural<br>manicure</span></label>
             <label><input type="radio" name="service" value="Painted nail details"><span>Painted<br>details</span></label>
-            <label><input type="radio" name="service" value="Nail care and repair"><span>Care &<br>repair</span></label>
+            <label><input type="radio" name="service" value="Nail care and repair"><span>Care &amp;<br>repair</span></label>
           </div></div>
           <div class="booking-grid">
             <div class="field"><label for="date">Preferred date</label><input id="date" type="date" required></div>
             <div class="field"><label for="time">Time of day</label><select id="time"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
           </div>
           <div class="request-preview" id="request-preview" aria-live="polite"></div>
-          <div class="booking-actions"><button type="button" class="btn secondary" id="copy-request" hidden>Copy request</button><button type="submit" class="btn" id="make-request">Create request</button></div>
+          <div class="booking-actions">
+            <button type="button" class="btn secondary" id="copy-request" hidden>Copy request</button>
+            <button type="submit" class="btn" id="make-request">Create request</button>
+          </div>
         </div>
       </section>
     </form>
   </dialog>
+
   <div class="toast" id="toast" role="status">Booking request copied</div>
-
-  <script>
-    (function () {
-      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-      var panels = Array.prototype.slice.call(document.querySelectorAll('.concept'));
-      function activate(id) {
-        tabs.forEach(function (tab) {
-          var on = tab.getAttribute('data-target') === id;
-          tab.setAttribute('aria-selected', String(on));
-        });
-        panels.forEach(function (panel) {
-          var on = panel.id === id;
-          panel.classList.toggle('active', on);
-          panel.hidden = !on;
-        });
-        document.querySelector('.tabs-wrap').scrollIntoView({ block: 'start' });
-      }
-      tabs.forEach(function (tab) { tab.addEventListener('click', function () { activate(tab.getAttribute('data-target')); }); });
-      document.querySelectorAll('[data-switch]').forEach(function (button) { button.addEventListener('click', function () { activate(button.getAttribute('data-switch')); }); });
-
-      var dialog = document.getElementById('booking-dialog');
-      var careDialog = document.getElementById('care-dialog');
-      var silkDialog = document.getElementById('silk-dialog');
-      var silkImage = document.getElementById('silk-gallery-image');
-      var silkCount = document.getElementById('silk-gallery-count');
-      var silkDetailView = document.getElementById('silk-detail-view');
-      var silkGridView = document.getElementById('silk-grid-view');
-      var silkViewToggle = document.getElementById('silk-view-toggle');
-      var silkInquiryPanel = document.getElementById('silk-inquiry-panel');
-      var silkInquiryTitle = document.getElementById('silk-inquiry-title');
-      var silkSlides = [
-        { src: 'img-02.jpg', caption: 'Color studies', alt: 'Flowing painted silk studies in coral, gold, teal, and blue' },
-        { src: 'img-03.jpg', caption: 'Coral & marigold detail', alt: 'Close view of coral and marigold painted silk studies' },
-        { src: 'img-04.jpg', caption: 'Teal & cobalt detail', alt: 'Close view of teal and cobalt painted silk studies' }
-      ];
-      var silkIndex = 0;
-      function showSilkSlide(index) {
-        silkIndex = (index + silkSlides.length) % silkSlides.length;
-        var slide = silkSlides[silkIndex];
-        silkImage.src = slide.src;
-        silkImage.style.objectPosition = 'center center';
-        silkImage.style.objectFit = 'cover';
-        silkImage.alt = slide.alt;
-        silkCount.textContent = (silkIndex + 1) + ' / ' + silkSlides.length;
-        silkInquiryTitle.textContent = 'Ask about ' + slide.caption;
-        silkInquiryPanel.classList.remove('show');
-      }
-      function setSilkGridView(showGrid) {
-        silkDetailView.hidden = showGrid;
-        silkGridView.classList.toggle('show', showGrid);
-        silkDialog.classList.toggle('silk-grid-open', showGrid);
-        silkViewToggle.setAttribute('aria-pressed', String(showGrid));
-        silkViewToggle.textContent = showGrid ? 'Detail view' : 'View all';
-      }
-      var form = document.getElementById('booking-form');
-      var preview = document.getElementById('request-preview');
-      var copy = document.getElementById('copy-request');
-      var toast = document.getElementById('toast');
-      var requestText = '';
-      var bookingServiceDetail = document.getElementById('booking-service-detail');
-      var serviceDetails = {
-        'Natural manicure': {
-          description: 'A gentle reset for natural nails, from thoughtful shaping and cuticle care to a clean, polished finish.',
-          time: 'About 50 minutes',
-          includes: 'Shape, cuticle care, polish',
-          best: 'A simple, restorative refresh',
-          accent: 'var(--coral)'
-        },
-        'Painted nail details': {
-          description: 'A natural manicure finished with small, hand-painted accents designed around your colors and point of view.',
-          time: 'About 75 minutes',
-          includes: 'Full manicure, custom painted accents',
-          best: 'A personal detail or playful color story',
-          accent: 'var(--cobalt)'
-        },
-        'Nail care and repair': {
-          description: 'Focused natural-nail care for breakage, peeling, or a nail that needs a little more patient attention.',
-          time: 'About 40 minutes',
-          includes: 'Assessment, gentle care, repair plan',
-          best: 'Getting natural nails back on track',
-          accent: 'var(--marigold)'
-        }
-      };
-      function updateServiceDetail(service) {
-        var detail = serviceDetails[service] || serviceDetails['Natural manicure'];
-        document.getElementById('booking-service-title').textContent = service;
-        document.getElementById('booking-service-description').textContent = detail.description;
-        document.getElementById('booking-service-time').textContent = detail.time;
-        document.getElementById('booking-service-includes').textContent = detail.includes;
-        document.getElementById('booking-service-best').textContent = detail.best;
-        bookingServiceDetail.style.setProperty('--service-accent', detail.accent);
-      }
-      form.querySelectorAll('input[name="service"]').forEach(function (option) {
-        option.addEventListener('change', function () { if (option.checked) updateServiceDetail(option.value); });
-      });
-      document.querySelectorAll('[data-book]').forEach(function (button) {
-        button.addEventListener('click', function () {
-          var service = button.getAttribute('data-service');
-          if (service) {
-            var option = form.querySelector('input[name="service"][value="' + service + '"]');
-            if (option) option.checked = true;
-          }
-          updateServiceDetail(form.querySelector('input[name="service"]:checked').value);
-          if (careDialog.open) careDialog.close();
-          dialog.showModal();
-        });
-      });
-      document.querySelectorAll('[data-silk-gallery]').forEach(function (button) { button.addEventListener('click', function () { showSilkSlide(0); setSilkGridView(false); silkDialog.showModal(); }); });
-      document.getElementById('close-silk-gallery').addEventListener('click', function () { silkDialog.close(); });
-      document.getElementById('silk-gallery-prev').addEventListener('click', function () { showSilkSlide(silkIndex - 1); });
-      document.getElementById('silk-gallery-next').addEventListener('click', function () { showSilkSlide(silkIndex + 1); });
-      silkViewToggle.addEventListener('click', function () { setSilkGridView(!silkGridView.classList.contains('show')); });
-      document.querySelectorAll('[data-silk-index]').forEach(function (button) {
-        button.addEventListener('click', function () {
-          showSilkSlide(Number(button.getAttribute('data-silk-index')));
-          setSilkGridView(false);
-        });
-      });
-      document.getElementById('silk-inquire').addEventListener('click', function () { silkInquiryPanel.classList.toggle('show'); });
-      document.getElementById('copy-silk-inquiry').addEventListener('click', function () {
-        var inquiryText = 'Hi Cole, I’m interested in the silk “' + silkSlides[silkIndex].caption + '.” Could you share availability and purchase details?';
-        navigator.clipboard.writeText(inquiryText).then(function () {
-          toast.textContent = 'Silk inquiry copied';
-          toast.classList.add('show');
-          setTimeout(function () { toast.classList.remove('show'); }, 1800);
-        });
-      });
-      silkDialog.addEventListener('click', function (event) { if (event.target === silkDialog) silkDialog.close(); });
-      document.querySelectorAll('[data-nail-care]').forEach(function (button) { button.addEventListener('click', function () { careDialog.showModal(); }); });
-      document.getElementById('close-care').addEventListener('click', function () { careDialog.close(); });
-      careDialog.addEventListener('click', function (event) { if (event.target === careDialog) careDialog.close(); });
-      document.getElementById('close-dialog').addEventListener('click', function () { dialog.close(); });
-      dialog.addEventListener('click', function (event) { if (event.target === dialog) dialog.close(); });
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        var date = document.getElementById('date').value;
-        var service = form.querySelector('input[name="service"]:checked').value;
-        var time = document.getElementById('time').value.toLowerCase();
-        if (!date) return;
-        var formatted = new Date(date + 'T12:00:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' });
-        requestText = 'Hi Cole, I’d like to request a ' + service.toLowerCase() + ' appointment on ' + formatted + ' in the ' + time + '. Please let me know what you have available.';
-        preview.textContent = requestText;
-        preview.classList.add('show');
-        copy.hidden = false;
-        document.getElementById('make-request').textContent = 'Update request';
-      });
-      copy.addEventListener('click', function () {
-        navigator.clipboard.writeText(requestText).then(function () {
-          toast.textContent = 'Booking request copied';
-          toast.classList.add('show');
-          setTimeout(function () { toast.classList.remove('show'); }, 1800);
-        });
-      });
-    }());
-  </script>
+  <script src="js/studio.js"></script>
 </body>
 </html>
