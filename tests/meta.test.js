@@ -29,6 +29,11 @@ test("points social previews at an absolute hero share image", () => {
   assert.equal(metaContent("twitter:image"), site + "/og-image.jpg");
 });
 
+test("includes an Open Graph logo", () => {
+  assert.equal(metaContent("og:logo"), site + "/og-logo.png");
+  assert.ok(fs.existsSync(path.join(__dirname, "..", "og-logo.png")), "og-logo.png should exist");
+});
+
 test("ships a 1200 by 630 share image file", () => {
   const imagePath = path.join(__dirname, "..", "og-image.jpg");
   assert.ok(fs.existsSync(imagePath), "og-image.jpg should exist");
