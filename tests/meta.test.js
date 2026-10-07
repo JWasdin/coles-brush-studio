@@ -16,7 +16,7 @@ function metaContent(name) {
 
 test("includes Open Graph title, description, and canonical URL", () => {
   assert.equal(metaContent("og:title"), "Cole’s Brush Studio");
-  assert.match(metaContent("og:description"), /nail care/i);
+  assert.equal(metaContent("og:description"), "Natural nail care, hand-painted details, and one-of-a-kind silks.");
   assert.equal(metaContent("og:url"), site + "/");
   assert.equal(metaContent("og:type"), "website");
 });
